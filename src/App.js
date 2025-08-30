@@ -1,4 +1,4 @@
-
+import GameContainer from './components/GameCard';
 import './App.css';
 
 function App() {
@@ -7,16 +7,12 @@ function App() {
     platforms: ["Nintendo Switch"],
     releaseDate: "03/03/2017",
     genre: "Action-Adventure",
+    rating: "9.7/10",
+    playTime: "50 hours"
   };
   return (
     <div className="App">
-     <h1>Video Game Catalogue</h1>
-     <div>
-      <h2>{gameData.title}</h2>
-      <p>Platform: {gameData.platforms.join(', ')}</p>
-      <p> Released: {gameData.releaseDate}</p>
-      <p>Genre: {gameData.genre}</p>
-     </div>
+     <GameContainer gameData={gameData} />
      </div>
   );
 }
