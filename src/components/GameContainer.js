@@ -1,14 +1,16 @@
 export default function GameContainer({ gameData }) {
     return (
-        <div>
+       <div className="bg-blue-500 text-white p-4 rounded-lg shadow-lg">
          <h2>{gameData.name}</h2>
-         <p>Platform: {gameData.platforms.join(', ')}</p>
-         <p>Released: {gameData.releaseDate}</p>
-         <p>Genre: {gameData.genre}</p>
+         <p>Platform: {gameData.platforms?.map(p => p.platform.name).join(', ')}</p>
+         <p>Released: {gameData.released}</p>
+         <p>Genre: {gameData.genres?.map(g => g.name).join(', ')}</p>
          <p>Rating: {gameData.rating}</p>
-         <p>Playtime: {gameData.playTime}</p>
-         <p>Description: {gameData.description}</p>
-        </div>
+         <p>Playtime: {gameData.playtime}</p>
+         {gameData.background_image &&
+         <img src={gameData.background_image} alt={gameData.name}/>
+         }
+       </div>
     )
 }
 
