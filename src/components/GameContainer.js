@@ -1,16 +1,19 @@
+import { format } from 'date-fns';
+
 export default function GameContainer({ gameData }) {
     return (
-       <div className="bg-blue-500 text-white p-4 rounded-lg shadow-lg">
-         <h2>{gameData.name}</h2>
-         <p>Platform: {gameData.platforms?.map(p => p.platform.name).join(', ')}</p>
-         <p>Released: {gameData.released}</p>
-         <p>Genre: {gameData.genres?.map(g => g.name).join(', ')}</p>
-         <p>Rating: {gameData.rating}</p>
-         <p>Playtime: {gameData.playtime}</p>
-         {gameData.background_image &&
-         <img src={gameData.background_image} alt={gameData.name}/>
-         }
+       <div className="bg-slate-600 flex gap-2">
+         <div className="px-0">
+         <img className="!w-[281px]" src={gameData.background_image} alt={gameData.name}/>
+         </div>
+         <div className="flex flex-col text-left">
+         <h1 className="font-medium">{gameData.name}</h1>
+        {/* <p>Platform: {gameData.platforms?.map(platform => platform.platform.name).join(', ')}</p>  */}
+         <p>Rating: {gameData.rating}/5</p>
+         <p>Genre: {gameData.genres?.map(genre => genre.name).join(', ')}</p>
+         <p>Released: {format(gameData.released, 'PPP')} </p>
+         {/* <p>Playtime: {gameData.playtime} hours</p> */}
+       </div>
        </div>
     )
 }
-
