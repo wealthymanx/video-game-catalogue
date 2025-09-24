@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 
 export default function GameContainer({ gameData }) {
     return (
-       <div className="bg-slate-600 flex gap-2">
+       <div className="bg-slate-600 flex gap-2 rounded-sm">
          <div className="px-0">
          <img className="!w-[281px]" src={gameData.background_image} alt={gameData.name}/>
          </div>
