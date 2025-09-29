@@ -13,8 +13,6 @@ const SearchBar = ({ query, setQuery, games }) => {
     const firstGame = filteredGames?.[0]?.name
 
     console.log(filteredGames,"filtered")
-    console.log(query,"query")
-    console.log(dropDown,"dropdown")
     
     const handleChange = (value) => {
         setQuery(value);
@@ -22,18 +20,18 @@ const SearchBar = ({ query, setQuery, games }) => {
     }
     console.log(handleChange,"handle change")
     return (
-        <div className="flex items-center rounded-lg">
+        <div className="flex items-center">
             <input 
             type="search" 
             placeholder="Search games" 
             aria-label="Search"
-            className="px-2 py-2 text-violet-600"
+            className="px-4 py-1 text-gray-700 rounded-sm"
             value={query}
-            onChange={(e) => handleChange(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}  
             />
-            <FaSearch className= "w-6 h-6" />
+            <button className="p-2"> <FaSearch className= "w-6 h-6" /></button>
            <div>
-            {dropDown && <div>{firstGame}</div>}
+            {dropDown && <div className="z-30 text-white">{firstGame}</div>}
                 
         </div> 
         </div>
