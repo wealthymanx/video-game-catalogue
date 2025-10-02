@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
       const fetchGames = async () => {
           try {
-              const response = await fetch (`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}&page_size=21`)
+              const response = await fetch (`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}&page_size=18`)
               if (!response.ok) {
                   throw new Error('Error');
               }
@@ -29,7 +29,7 @@ function App() {
   return (
     <div>
      <Header />
-     <div className="flex justify-center">
+     <div className="flex justify-center bg-yellow-600">
      <SearchBar query={query} setQuery={setQuery} games={games} />
      </div>
      <GameDisplay games={games} />
