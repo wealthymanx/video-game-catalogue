@@ -19,19 +19,23 @@ const SearchBar = ({ query, setQuery, games }) => {
         setDropdown(true);
     }
     console.log(handleChange,"handle change")
+
+    const handleClear = () => {
+        setDropdown('');
+    }
     return (
-        <div className="flex items-center">
+        <div className="flex items-center relative">
             <input 
             type="search" 
             placeholder="Search games" 
             aria-label="Search"
-            className="px-4 py-1 text-gray-700 rounded-sm"
+            className="px-6 py-1 text-gray-700 rounded-lg border-4 border-black"
             value={query}
             onChange={(e) => handleChange(e.target.value)}  
             />
             <button className="p-2"> <FaSearch className= "w-6 h-6" /></button>
-           <div>
-            {dropDown && <div className="z-30 text-white">{firstGame}</div>}
+           <div className="absolute top-full left-0 mt-1">
+            {dropDown && <div className="border rounded bg-white z-30 text-black">{firstGame}</div>}
                 
         </div> 
         </div>
