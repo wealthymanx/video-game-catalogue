@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import GameDisplay from './components/GameDisplay';
 import SearchBar from './components/SearchBar';
 import Header from './components/Header';
+import SideNav from './Nav/SideNav';
 
 function App() {
      const [games, setGames] = useState(null);
@@ -28,10 +29,9 @@ function App() {
   }, []);
   return (
     <div>
-     <Header />
-     <div className="flex justify-center bg-yellow-600">
-     <SearchBar query={query} setQuery={setQuery} games={games} />
-     </div>
+     <Header query={query} setQuery={setQuery} games={games}/>
+     <SideNav />
+     {/* <SearchBar query={query} setQuery={setQuery} games={games} /> */}
      <GameDisplay games={games} />
      </div>
   );
