@@ -3,13 +3,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Settings from "./components/Settings";
-import Library from "./components/Library";
+import Settings from "./Components/Settings";
+import Library from "./Components/Library";
+import GameDetails from "./Components/GameDetails";
 
  const router = createBrowserRouter([
   {path: "/", element: <App />},
   {path: "/library", element: <Library />},
-   {path: "/settings", element: <Settings />},
+  {path: "/settings", element: <Settings />},
+  {path: "/game/", element: <GameDetails />}
 
 ]);
 

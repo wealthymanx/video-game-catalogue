@@ -1,12 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import SearchBar from '../components/SearchBar';
-import { NavItems, navClasses } from '../utils';
+import { NavItems, navClasses, sortGames, SortOptions } from '../utils';
 
-export default function SideNav() {
+
+export default function SideNav({ sortBy, setSortBy }) {
 
     return (
-    <nav className="w-80 h-screen fixed top-0 left-0 bg-slate-950 border-r-black">
-        <h1 className="p-6 text-2xl text-yellow-500 font-bold text-center border border-solid ">Marcel's Game Library</h1>
+    <nav className="flex flex-col bg-slate-950 border-r-black w-80 text-2xl">   
           {NavItems.map((item) => (
             <NavLink
                 key={item.name}
@@ -16,6 +15,16 @@ export default function SideNav() {
             {item.name}
             </NavLink>
         ))}
+        <h3 className="text-yellow-400 text-center">Sort By:</h3>
+        {SortOptions.map((option) => 
+        <button
+            key={option.name}
+            onClick={() => setSortBy(option.value)}
+            className="text-yellow-400"
+            >
+            {option.name}
+            </button>
+        )}
     </nav>
   
     )
