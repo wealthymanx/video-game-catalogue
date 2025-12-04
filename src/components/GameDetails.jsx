@@ -1,8 +1,12 @@
+import { Link } from 'react-router-dom';
 
-export default function GameDetails(){
+export default function GameDetails( {gameData} ){
+    const handleClick = (event) => {
+
+    }
     return (
         <div>
-            Testing Onclick
+            {gameData.description}
         </div>
     )
 }

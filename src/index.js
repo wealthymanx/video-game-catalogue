@@ -11,7 +11,7 @@ import GameDetails from "./Components/GameDetails";
   {path: "/", element: <App />},
   {path: "/library", element: <Library />},
   {path: "/settings", element: <Settings />},
-  {path: "/game/", element: <GameDetails />}
+  {path: "/game/:id", element: <GameDetails />}
 
 ]);
 

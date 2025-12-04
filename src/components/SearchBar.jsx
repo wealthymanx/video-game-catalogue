@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
-import { FaSearch } from "react-icons/fa"
+import React, { useState, Fragment } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 const SearchBar = ({ query, setQuery, games }) => {
     const [dropDown, setDropdown] = useState(false);
     //    console.log(games, "games")
-
        const filteredGames = games?.filter(game =>
         game.name.toLowerCase().startsWith(query.toLowerCase())
-        
+  
      );
 
-    const firstGame = filteredGames?.[0]?.name
-    const secondGame = filteredGames?.[1]?.name
-    const thirdGame = filteredGames?.[2]?.name
-    
+    const navigate = useNavigate();
+     
+    const handleDropClick = (game) => {
+         navigate(`/game/${game.id}`);
+    }
+
     const handleChange = (value) => {
         setDropdown(value.length > 0);
         setQuery(value);
 
     }
-
+  
     return (
         <div className="relative">
             {/* <button className="p-2"> <FaSearch className= "w-6 h-6" /></button> */}
@@ -32,16 +33,15 @@ const SearchBar = ({ query, setQuery, games }) => {
             onChange={(e) => handleChange(e.target.value)}  
             />
            
-           <div className="absolute top-full left-0 z-30 w-96">
-            {dropDown && <div className="border rounded bg-white z-30 text-black w-full">
-                <div className="px-2 py-2 hover:bg-gray-100">{firstGame}</div>
-                <hr className="border-gray-200" />
-               <div className="px-2 py-2 hover:bg-gray-100">{secondGame}</div>
-               <hr className="border-gray-200" />
-                 <div className="px-2 py-2 hover:bg-gray-100">{thirdGame}</div>
-            </div>}
-                
-        </div> 
+         {dropDown && <div className="absolute top-full left-0 z-30 w-96 border rounded bg-white text-black">
+            {filteredGames?.slice(0,3).map((game, index) => (
+                <Fragment key={game.id}> <div className="hover:bg-gray-100 cursor-pointer" onClick={() => {handleDropClick(game)}}>
+                    {game.name}
+                    </div>
+                </Fragment>
+            ))}
+                   
+        </div>}
         </div>
     )
 }

@@ -1,9 +1,17 @@
 import { format } from 'date-fns';
 import { Rating } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 export default function GameCard({ gameData }) {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/game/${gameData.id}`);
+  }
+
     return (
-       <div className=" flex flex-col flex-nowrap justify-center gap-1 rounded-lg border-[3px] border-yellow-600 shadow-lg  hover:bg-violet-800 mt-4">
+       <div className=" flex flex-col flex-nowrap justify-center gap-1 rounded-lg border-[3px] border-yellow-600 shadow-lg  hover:bg-violet-800 mt-4" onClick={handleCardClick}>
+        
          <div className="h-12 flex items-center justify-center">
             <h1 className="text-lg font-medium text-yellow-400">{gameData.name}</h1>
           </div>
