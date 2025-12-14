@@ -6,7 +6,7 @@ export default function GameCard({ gameData }) {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate(`/game/${gameData.id}`);
+    navigate(`/game/${gameData.id}`, { state: { gameData } });
   }
 
     return (

@@ -28,14 +28,15 @@ const SearchBar = ({ query, setQuery, games }) => {
             type="search" 
             placeholder="Search games" 
             aria-label="Search"
-            className="px-2 py-1.5 text-black rounded-lg border-4 border-black focus:outline-none focus:border-4 focus:border-black w-96"
+            className="px-2 py-1.5 text-yellow-600 rounded-lg border-4 border-yellow-600 focus:outline-none focus:border-4 focus:border-yellow-600 w-96"
             value={query}
             onChange={(e) => handleChange(e.target.value)}  
             />
            
-         {dropDown && <div className="absolute top-full left-0 z-30 w-96 border rounded bg-white text-black">
+         {dropDown && <div className="absolute top-full left-0 z-30 w-96 border rounded bg-gray-600 text-yellow-600">
             {filteredGames?.slice(0,3).map((game, index) => (
-                <Fragment key={game.id}> <div className="hover:bg-gray-100 cursor-pointer" onClick={() => {handleDropClick(game)}}>
+                <Fragment key={game.id}> <div className="hover:bg-gray-100 cursor-pointer flex items-center gap-3 p-2" onClick={() => {handleDropClick(game)}}>
+                    <img src={game.background_image} alt={game.name} className="w-12 h-12 object-cover rounded" />
                     {game.name}
                     </div>
                 </Fragment>

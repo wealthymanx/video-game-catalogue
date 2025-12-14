@@ -5,7 +5,7 @@ import { NavItems, navClasses, sortGames, SortOptions } from '../utils';
 export default function SideNav({ sortBy, setSortBy }) {
 
     return (
-    <nav className="flex flex-col bg-slate-950 border-r-black w-80 text-2xl">   
+    <nav className="flex flex-col bg-slate-950 border-r-4 border-yellow-600 w-80 text-2xl min-h-screen">   
           {NavItems.map((item) => (
             <NavLink
                 key={item.name}

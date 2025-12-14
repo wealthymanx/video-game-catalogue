@@ -6,13 +6,18 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Settings from "./Components/Settings";
 import Library from "./Components/Library";
 import GameDetails from "./Components/GameDetails";
+import Layout from "./Components/Layout";
 
  const router = createBrowserRouter([
+   {path: "/",
+   element: <Layout />,
+   children: [
   {path: "/", element: <App />},
   {path: "/library", element: <Library />},
   {path: "/settings", element: <Settings />},
   {path: "/game/:id", element: <GameDetails />}
-
+   ]
+   }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
