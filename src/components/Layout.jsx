@@ -33,7 +33,7 @@ export default function Layout() {
         <div>
              <Header query={query} setQuery={setQuery} games={games}/>
              <div className="flex min-h-screen">
-                <SideNav sortBy={sortBy} setSortBy={setSortBy} />
+                <SideNav />
                 <Outlet context={{ games: sortedGames }} />
              </div>
         </div>
