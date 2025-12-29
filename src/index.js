@@ -3,10 +3,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Settings from "./Components/Settings";
+import Wishlist from "./Components/Wishlist";
 import Library from "./Components/Library";
 import GameDetails from "./Components/GameDetails";
 import Layout from "./Components/Layout";
+import NoPageFound from "./Components/NoPageFound";
 
  const router = createBrowserRouter([
    {path: "/",
@@ -14,8 +15,9 @@ import Layout from "./Components/Layout";
    children: [
   {path: "/", element: <App />},
   {path: "/library", element: <Library />},
-  {path: "/settings", element: <Settings />},
-  {path: "/game/:id", element: <GameDetails />}
+  {path: "/wishlist", element: <Wishlist />},
+  {path: "/game/:id", element: <GameDetails />},
+  {path: "*", element: <NoPageFound />}
    ]
    }
 ]);

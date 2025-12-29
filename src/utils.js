@@ -1,10 +1,10 @@
 export const NavItems = [
     { name: 'Home', href: '/', },
     { name: 'Library', href: '/library',},
-    { name: 'Settings', href: '/settings', },
+    { name: 'Wishlist', href: '/wishlist', },
 ]
 export function navClasses (isActive) {
-    return isActive ? "block p-8 text-blue-500 text-center font-bold underline" : "block p-8 text-yellow-400 text-center"
+    return isActive ? "block p-8 text-purple-900 text-center font-bold underline" : "block p-8 text-yellow-400 text-center"
 }
 
 export const SortOptions = [
