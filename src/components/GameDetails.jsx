@@ -22,14 +22,17 @@ export default function GameDetails(){
     const fetchGameDetails = async () => {
       const response = await fetch
       (`https://api.rawg.io/api/games/${id}?key=${process.env.REACT_APP_API_KEY}`);
+
       const data = await response.json();
       setGameData(data);
       setLoading(false);
     };
-    
     fetchGameDetails();
-   }, [id]
-  );
+   }, [id]);
+
+   if (loading) {
+    return <p>Loading data :D</p>
+   }
 
     return (
          <div className="max-w-4xl mx-auto mt-8 rounded-lg border-4 border-yellow-600 overflow-hidden shadow-2xl">
@@ -46,6 +49,6 @@ export default function GameDetails(){
           <p className='text-yellow-300 text-sm'>Platforms: {gameData.platforms?.map(platform => platform.platform.name).join(', ')}</p>  
           <p className="text-yellow-300 text-sm">Playtime: {gameData.playtime} hours</p> 
           <p className="text-yellow-300 text-sm">{gameData.description_raw}</p>
-    </div>
+      </div>
   </div>
 )}

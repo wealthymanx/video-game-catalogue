@@ -10,7 +10,9 @@ export default function GameCard({ gameData }) {
   }
 
     return (
-       <div className=" flex flex-col flex-nowrap justify-center gap-1 rounded-lg border-[3px] border-yellow-600 shadow-lg cursor-pointer hover:bg-purple-900 mt-4" onClick={handleCardClick}>
+       <div className=" flex flex-col flex-nowrap justify-center gap-1 rounded-lg border-[3px]
+        border-yellow-600 shadow-lg cursor-pointer hover:bg-purple-900 mt-4 
+        hover:scale-110 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" onClick={handleCardClick} >
         
          <div className="h-12 flex items-center justify-center">
             <h1 className="text-lg font-medium text-yellow-400">{gameData.name}</h1>
@@ -20,8 +22,9 @@ export default function GameCard({ gameData }) {
          </div>
         <div className="flex flex-col text-left items-center">
             <Rating name="half-rating" value={gameData.rating} precision={0.5} readOnly/>
-         <p className="text-yellow-300 text-left text-sm mb-1">Released: {format(gameData.released, 'PPP')} </p>
+         <p className="text-yellow-300 text-left text-sm mb-1">Released: {gameData.released ? format(gameData.released, 'PPP') : 'TBA'} </p>
         </div>
        </div>
     )
 }
+
